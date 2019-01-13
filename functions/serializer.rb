@@ -17,6 +17,8 @@ class Serializer
         false
       )
 
-    payload
+    {
+      name: payload['name']
+    }
   end
 end
