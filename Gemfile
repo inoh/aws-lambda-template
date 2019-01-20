@@ -6,4 +6,6 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem "jwt"
 
-gem 'guard-rspec', require: false
+group :test do
+  gem 'guard-rspec', require: false
+end
