@@ -118,7 +118,36 @@ functions:
 #    environment:
 #      variable2: value2
 
-# you can add CloudFormation resource templates here
+resources:
+  Resources:
+    # DynamoDBの構築
+    DynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        # キーの型を指定
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+          -
+            AttributeName: name
+            AttributeType: S
+        # キーの種類を指定（ハッシュorレンジキー）
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+          -
+            AttributeName: name
+            KeyType: RANGE
+        # プロビジョニングするキャパシティーユニットの設定
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        # テーブル名の指定
+        TableName: Users
+
+        # you can add CloudFormation resource templates here
 #resources:
 #  Resources:
 #    NewResource:

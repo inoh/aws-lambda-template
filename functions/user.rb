@@ -1,10 +1,17 @@
-require 'aws-sdk'
+require 'repository'
 
 def create(event:, context:)
-  dynamoDB = Aws::DynamoDB::Resource.new(region: 'us-west-2')
+  repository = Repository.new
+
+  request = JSON.parse(event['body'])
+
+  user = repository.create(
+    request['id'],
+    request['name']
+  )
 
   {
     statusCode: 200,
-    body: dynamoDB.tables.map(&:name).to_json
+    body: user.to_json
   }
 end
