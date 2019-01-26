@@ -2,7 +2,7 @@
 
 デプロイ
 ```
-cd functions
+bundle install --without test
 npx sls deploy
 ```
 

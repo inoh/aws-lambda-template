@@ -64,6 +64,15 @@ provider:
 #  exclude:
 #    - exclude-me.py
 #    - exclude-me-dir/**
+package:
+ exclude:
+   - docs/**
+   - spec/**
+   - tmp/**
+   - Gemfile
+   - Gemfile.lock
+   - Guardfile
+   - README.md
 
 functions:
   authentication-create:
