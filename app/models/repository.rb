@@ -7,8 +7,8 @@ class Repository
 
   def create(id, name)
     item = {
-      id: 'ino_h',
-      name: 'inoue'
+      id: id,
+      name: name
     }
   
     client.put_item(

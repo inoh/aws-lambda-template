@@ -67,19 +67,19 @@ provider:
 
 functions:
   authentication-create:
-    handler: authentication.create
+    handler: app/functions/authentication.create
     events:
       - http:
           path: sign_in
           method: post
   authentication-show:
-    handler: authentication.show
+    handler: app/functions/authentication.show
     events:
       - http:
           path: me
           method: get
   user-create:
-    handler: user.create
+    handler: app/functions/user.create
     events:
       - http:
           path: users

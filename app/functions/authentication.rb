@@ -1,5 +1,5 @@
 require 'json'
-require 'serializer'
+require 'app/models/serializer'
 
 def create(event:, context:)
   serializer = Serializer.new

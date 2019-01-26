@@ -1,4 +1,4 @@
-require 'repository'
+require 'app/models/repository'
 
 def create(event:, context:)
   repository = Repository.new

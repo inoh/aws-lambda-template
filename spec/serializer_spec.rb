@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require './functions/serializer'
+require './app/models/serializer'
 
 describe Serializer do
   let(:serializer) { described_class.new }
