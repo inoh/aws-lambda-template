@@ -98,7 +98,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-  require 'aws-sdk'
+  require 'aws-sdk-dynamodb'
 
   Aws.config[:stub_responses] = true
 end

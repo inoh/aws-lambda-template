@@ -7,7 +7,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem "jwt"
 
 group :test do
-  gem 'aws-sdk', require: false
+  gem 'aws-sdk-dynamodb', require: false
 
   gem 'guard-rspec', require: false
 end
