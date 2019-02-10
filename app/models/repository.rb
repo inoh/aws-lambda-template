@@ -19,6 +19,17 @@ class Repository
     item
   end
 
+  def find(id)
+    client.get_item(
+      table_name: 'Users',
+      key: {
+        id: id
+      }
+    ).item
+  rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
+    nil
+  end
+
   private
 
   attr_reader :client

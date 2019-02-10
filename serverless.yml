@@ -79,7 +79,7 @@ functions:
   authentication-create:
     handler: app/functions/authentication.create
     layers:
-      - arn:aws:lambda:us-east-1:894367665006:layer:gem:4
+      - arn:aws:lambda:us-east-1:894367665006:layer:gem:5
     events:
       - http:
           path: sign_in
@@ -89,7 +89,7 @@ functions:
   authentication-show:
     handler: app/functions/authentication.show
     layers:
-      - arn:aws:lambda:us-east-1:894367665006:layer:gem:4
+      - arn:aws:lambda:us-east-1:894367665006:layer:gem:5
     events:
       - http:
           path: me
@@ -136,36 +136,6 @@ functions:
 #    environment:
 #      variable2: value2
 
-resources:
-  Resources:
-    # DynamoDBの構築
-    DynamoDbTable:
-      Type: 'AWS::DynamoDB::Table'
-      Properties:
-        # キーの型を指定
-        AttributeDefinitions:
-          -
-            AttributeName: id
-            AttributeType: S
-          -
-            AttributeName: name
-            AttributeType: S
-        # キーの種類を指定（ハッシュorレンジキー）
-        KeySchema:
-          -
-            AttributeName: id
-            KeyType: HASH
-          -
-            AttributeName: name
-            KeyType: RANGE
-        # プロビジョニングするキャパシティーユニットの設定
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        # テーブル名の指定
-        TableName: Users
-
-        # you can add CloudFormation resource templates here
 #resources:
 #  Resources:
 #    NewResource:

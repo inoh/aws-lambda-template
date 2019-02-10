@@ -14,6 +14,6 @@ describe Serializer do
   describe '#decode' do
     subject { serializer.decode('eyJhbGciOiJub25lIn0.eyJuYW1lIjoiaW5vX2gifQ.') }
 
-    it { is_expected.to match(name: 'ino_h') }
+    it { is_expected.to eq('name' => 'ino_h') }
   end
 end
