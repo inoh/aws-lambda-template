@@ -1,8 +1,6 @@
 require 'app/models/repository'
 
 def create(event:, context:)
-  repository = Repository.new
-
   request = JSON.parse(event['body'])
 
   user = repository.create(
@@ -14,4 +12,10 @@ def create(event:, context:)
     statusCode: 200,
     body: user.to_json
   }
+end
+
+private
+
+def repository
+  @repository ||= Repository.new
 end
