@@ -3,14 +3,16 @@ require 'app/models/repository'
 def create(event:, context:)
   request = JSON.parse(event['body'])
 
-  user = repository.create(
+  user = Repository::User.new(
     request['id'],
-    request['name']
+    request['name'],
+    request['password']
   )
 
+  repository.create(user)
+
   {
-    statusCode: 200,
-    body: user.to_json
+    statusCode: 204
   }
 end
 

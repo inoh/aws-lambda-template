@@ -9,14 +9,13 @@ def create(event:, context:)
     request['id']
   )
 
-  return { statusCode: 204 } unless user
+  return { statusCode: 401 } if user&.password != request['password']
 
   {
     statusCode: 200,
     body: {
       access_token: serializer.encode(
-        id: user['id'],
-        name: user['name']
+        id: user['id']
       )
     }.to_json
   }
@@ -25,9 +24,18 @@ end
 def show(event:, context:)
   token = event['headers']['Authorization'].split(' ').last
 
+  payload = serializer.decode(token)
+
+  user = repository.find(
+    payload['id']
+  )
+
   {
     statusCode: 200,
-    body: serializer.decode(token).to_json
+    body: {
+      id: user.id,
+      name: user.name
+    }.to_json
   }
 end
 
