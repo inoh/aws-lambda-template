@@ -9,7 +9,7 @@ def create(event:, context:)
     request['id']
   )
 
-  return { statusCode: 401 } unless user
+  return { statusCode: 204 } unless user
 
   {
     statusCode: 200,

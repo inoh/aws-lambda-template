@@ -79,23 +79,23 @@ functions:
   authentication-create:
     handler: app/functions/authentication.create
     layers:
-      - arn:aws:lambda:us-east-1:894367665006:layer:gem:5
+      - arn:aws:lambda:us-east-1:894367665006:layer:gem:6
     events:
       - http:
           path: sign_in
           method: post
     environment:
-      GEM_HOME: /opt/ruby/2.5.0
+      GEM_PATH: /opt/ruby/2.5.0
   authentication-show:
     handler: app/functions/authentication.show
     layers:
-      - arn:aws:lambda:us-east-1:894367665006:layer:gem:5
+      - arn:aws:lambda:us-east-1:894367665006:layer:gem:6
     events:
       - http:
           path: me
           method: get
     environment:
-      GEM_HOME: /opt/ruby/2.5.0
+      GEM_PATH: /opt/ruby/2.5.0
   user-create:
     handler: app/functions/user.create
     events:
