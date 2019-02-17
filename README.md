@@ -1,14 +1,17 @@
-## Ruby AWS Lambda
+## AWS Lambda by Ruby
 
-デプロイ
+### 注意書き
+AWS Lambda で Ruby を使ったサンプルとなるため、JWT のセキュリティについては、考慮が必要です。
+
+### デプロイ
+
 ```
 bundle install --without test
 npx sls deploy
 ```
 
-テスト
+### テスト
+
 ```
-docker pull amazon/dynamodb-local
-docker run -p 8000:8000 amazon/dynamodb-local
 bundle exec guard
 ```
