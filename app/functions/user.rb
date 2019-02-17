@@ -1,6 +1,6 @@
 require 'app/models/repository'
 
-def create(event:, context:)
+def save(event:, context:)
   request = JSON.parse(event['body'])
 
   user = Repository::User.new(

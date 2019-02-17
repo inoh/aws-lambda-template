@@ -5,15 +5,14 @@ require './app/models/repository'
 describe Repository do
   let(:repository) { described_class.new }
 
-  describe '#create' do
-    subject { repository.create('ino_h', 'inoue') }
-
-    it 'レコードを作成すること' do
-      is_expected.to eq(
-        id: 'ino_h',
-        name: 'inoue'
+  describe '#save' do
+    subject do
+      repository.save(
+        Repository::User.new('ino_h', 'inoue', 'secret')
       )
     end
+
+    it { is_expected.to be(true) }
   end
 
   describe '#find' do

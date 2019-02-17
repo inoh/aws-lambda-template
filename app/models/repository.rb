@@ -7,8 +7,8 @@ class Repository
     @client = Aws::DynamoDB::Client.new
   end
 
-  def create(user)
-    client.put_item(
+  def save(user)
+    response = client.put_item(
       table_name: 'Users',
       item: {
         id: user.id,
@@ -16,6 +16,8 @@ class Repository
         password: user.password
       }
     )
+
+    response.error.nil?
   end
 
   def find(id)

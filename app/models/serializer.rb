@@ -26,6 +26,8 @@ class Serializer
       )
 
     payload
+  rescue JWT::DecodeError
+    nil
   end
 
   private
