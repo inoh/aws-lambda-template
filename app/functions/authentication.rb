@@ -1,4 +1,3 @@
-require 'json'
 require 'app/models/serializer'
 require 'app/models/repository'
 
@@ -26,9 +25,13 @@ def show(event:, context:)
 
   payload = serializer.decode(token)
 
+  return { statusCode: 401 } if payload.nil?
+
   user = repository.find(
     payload['id']
   )
+
+  return { statusCode: 404 } if user.nil?
 
   {
     statusCode: 200,
