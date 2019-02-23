@@ -9,7 +9,7 @@ def save(event:, context:)
     request['password']
   )
 
-  repository.create(user)
+  repository.save(user)
 
   {
     statusCode: 204

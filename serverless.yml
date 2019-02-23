@@ -70,6 +70,7 @@ package:
    - spec/**
    - tmp/**
    - ruby/**
+   - docker-compose.ym
    - Gemfile
    - Gemfile.lock
    - Guardfile
@@ -96,8 +97,8 @@ functions:
           method: get
     environment:
       GEM_PATH: /opt/ruby/2.5.0
-  user-create:
-    handler: app/functions/user.create
+  user-save:
+    handler: app/functions/user.save
     events:
       - http:
           path: users
